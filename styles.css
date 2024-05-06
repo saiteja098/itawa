@@ -6,19 +6,6 @@ body {
     font-size: 18px;
 }
 
-/* WebKit (Chrome, Safari) */
-::-webkit-scrollbar {
-    width: 12px; /* width of the scrollbar */
-}
-
-::-webkit-scrollbar-thumb {
-    background: #f85359; /* color of the scrollbar thumb */
-    border-radius: 0px; /* roundness of the scrollbar thumb */
-}
-
-::-webkit-scrollbar-track {
-    background: #f0f0f0; /* color of the scrollbar track */
-}
 
 
 * {
@@ -218,6 +205,21 @@ a {
     color: #fff;
     margin: 0 0 30px;
     transition: all .4s ease;
+}
+
+.carousel-caption h2,
+.carousel-caption p,
+.carousel-caption a {
+    transform: translateY(50px);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.carousel-item.active .carousel-caption h2,
+.carousel-item.active .carousel-caption p,
+.carousel-item.active .carousel-caption a {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .hero-button {
@@ -1224,26 +1226,9 @@ html .mb15 {
 }
 
 @media only screen and (max-width: 992px) {
-/* WebKit (Chrome, Safari) */
-::-webkit-scrollbar {
-    width: 12px !important; /* Width of the scrollbar */
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-    background: #f0f0f0 !important; /* Color of the scrollbar track */
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #f85359 !important; /* Color of the scrollbar thumb */
-    border-radius: 6px; /* Roundness of the scrollbar thumb */
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #d62977 !important; /* Color of the scrollbar thumb on hover */
-}
+    .hero-slider .carousel-control-next, .hero-slider .carousel-control-prev {
+        display: none;
+    }
     .extrabtn {
         position: absolute;
         right: 60px;
@@ -1474,3 +1459,19 @@ html .mb15 {
         margin-right: 10px;
     }
  }
+
+ ::-webkit-scrollbar-track {
+    background: #e8e8e8;
+}
+
+ ::-webkit-scrollbar-thumb {
+    background: #f85359;
+}
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #e2494f;
+}
+
+ ::-webkit-scrollbar {
+    width: 8px;
+}
