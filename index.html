@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
  
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top justify-content-between navbar-mobile transparent-navbar">
+
+    <nav class="navbar navbar-expand-lg fixed-top transparent-navbar">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">ITAWA<span class="dot">.</span></a>
           <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,8 +22,7 @@
             <span class="icon-bar middle-bar"></span>
             <span class="icon-bar bottom-bar"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="mr-auto"></ul>
+          <div class="collapse navbar-collapse" id="navbarNav" style="">
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#hero-section">Home</a>
@@ -48,7 +48,7 @@
             </ul>
           </div>
           <div class="extrabtn">
-            <a class="bttn button1 navbutton" href="#.">Book Now</a>  
+            <a class="bttn button1 navbutton" href="#.">Book Now</a>
           </div>
         </div>
       </nav>
@@ -925,7 +925,7 @@
               <div class="row">
                  <div class="col-lg-12">
                     <div class="footer-- text-center">
-                       <p>Copyright © 2020-2021 Itawa. All rights reserved. Template By <a href="https://themeforest.net/user/rajesh-doot/portfolio" class="pt20" target="blank">Rajesh Doot</a></p>
+                       <p>Copyright © 2020-2021 Itawa. All rights reserved. Template By <a href="#." class="pt20" target="blank">Sai Teja</a></p>
                     </div>
                  </div>
               </div>
@@ -1037,6 +1037,78 @@
             }
         });
     });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get the toggler button and the navbar collapse element
+        var navbarToggler = document.querySelector(".navbar-toggler");
+        var navbarCollapse = document.querySelector(".navbar-collapse");
+    
+        // Function to close the navbar menu when clicked outside of it
+        function closeNavbarOnClickOutside(event) {
+          if (!navbarCollapse.contains(event.target) && !navbarToggler.contains(event.target)) {
+            // If the clicked element is not inside the navbar collapse or the toggler button, close the navbar menu
+            navbarCollapse.classList.remove("show");
+            navbarToggler.classList.add("collapsed");
+            document.removeEventListener("click", closeNavbarOnClickOutside);
+          }
+        }
+      
+        // Add click event listener to all navbar links to close the navbar when clicked
+        var navbarLinks = document.querySelectorAll(".navbar-nav .nav-link");
+        navbarLinks.forEach(function(navbarLink) {
+          navbarLink.addEventListener("click", function() {
+            // Check if the navbar collapse element has the 'show' class
+            if (navbarCollapse.classList.contains("show")) {
+              // If it does, remove the 'show' class to close the navbar
+              navbarToggler.classList.add("collapsed");
+              navbarCollapse.classList.remove("show");
+            }
+          });
+        });
+      
+        // Add click event listener to the toggler button
+        navbarToggler.addEventListener("click", function() {
+          // Check if the navbar is expanded
+          var isExpanded = navbarToggler.getAttribute("aria-expanded") === "true";
+          
+          // Toggle the 'show' class on the navbar collapse element
+          if (isExpanded) {
+            // If it's expanded, remove the 'show' class to close the navbar
+            navbarToggler.setAttribute("aria-expanded", "false");
+            navbarCollapse.classList.remove("show");
+          } else {
+            // If it's not expanded, add the 'show' class to open the navbar
+            navbarToggler.setAttribute("aria-expanded", "true");
+            navbarCollapse.classList.add("show");
+          }
+          
+          // Add event listener to close the navbar when clicked outside
+          document.addEventListener("click", closeNavbarOnClickOutside);
+        });
+    });
+    
+
+
+      document.addEventListener("DOMContentLoaded", function() {
+        // Get the carousel element
+        var carousel = document.querySelector('.carousel');
+      
+        // Initialize Hammer.js on the carousel element
+        var hammer = new Hammer(carousel);
+      
+        // Enable horizontal swiping
+        hammer.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL });
+      
+        // Add swipe event listeners
+        hammer.on('swipeleft', function() {
+          $('.carousel').carousel('next');
+        });
+      
+        hammer.on('swiperight', function() {
+          $('.carousel').carousel('prev');
+        });
+      });
+      
     </script>    
 </body>
 </html>

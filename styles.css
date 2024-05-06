@@ -11,13 +11,13 @@ body {
     width: 12px; /* width of the scrollbar */
 }
 
-::-webkit-scrollbar-track {
-    background: #f0f0f0; /* color of the scrollbar track */
-}
-
 ::-webkit-scrollbar-thumb {
     background: #f85359; /* color of the scrollbar thumb */
     border-radius: 0px; /* roundness of the scrollbar thumb */
+}
+
+::-webkit-scrollbar-track {
+    background: #f0f0f0; /* color of the scrollbar track */
 }
 
 
@@ -40,7 +40,7 @@ body {
 }
 
 .opaque-navbar {
-    background-color: rgba(255, 255, 255, 1) !important; /* Adjust opacity as needed */
+    background-color: rgba(255, 255, 255, 1) !important; 
 }
 
 .navbar-toggler:focus {
@@ -1210,7 +1210,7 @@ html .mb15 {
 
 
 
-.agent-photo, .amenities-card, .cta, .fixed-top, .floor-plans, .form-block button, .form-block input, .gallery-, .nav-item a, .project-card-, .reviews-card, .top-header .nav-link, .top-header .nav-link:hover, .top-header .sticky {
+.agent-photo, .amenities-card, .cta, .floor-plans, .form-block button, .form-block input, .gallery-, .project-card-, .reviews-card {
     -moz-transition: all .5s;
     -o-transition: all .5s;
     -webkit-transition: all .5s;
@@ -1224,6 +1224,26 @@ html .mb15 {
 }
 
 @media only screen and (max-width: 992px) {
+/* WebKit (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 12px !important; /* Width of the scrollbar */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f0f0f0 !important; /* Color of the scrollbar track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #f85359 !important; /* Color of the scrollbar thumb */
+    border-radius: 6px; /* Roundness of the scrollbar thumb */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #d62977 !important; /* Color of the scrollbar thumb on hover */
+}
     .extrabtn {
         position: absolute;
         right: 60px;
@@ -1300,12 +1320,14 @@ html .mb15 {
 
     .carousel-caption { 
         top: 30%;
+        width: 95%;
+        left: 10px;
     }
 
     .carousel-caption h2 {
         font-size: 50px;
         font-weight: 300;
-        line-height: 50px;
+        line-height: 60px;
         color: #fff;
         margin: 0 0 5px;
         transition: all .4s ease;
@@ -1313,7 +1335,7 @@ html .mb15 {
     }
     
     .carousel-caption p {
-        font-size: 20px;
+        font-size: 22px;
         font-weight: 400;
         letter-spacing: normal;
         color: #fff;
